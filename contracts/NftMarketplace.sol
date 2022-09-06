@@ -2,13 +2,14 @@
 // SPDX-License-Identifier: SEE LICENSE IN LICENSE
 pragma solidity ^0.8.7;
 import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
+import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 error NftMarketplace__PriceMustBeAboveZero();
 error NftMarketplace__NotApprovedForMarketplace();
 error NftMarketplace__AlreadyListed(address nftAddress, uint256 tokenId);
 error NftMarketplace__NotListed(address nftAddress, uint256 tokenId);
 error NftMarketplace__PriceNotMet(address nftAddress, uint256 tokenId, uint256 price);
 error NftMarketplace__NotOwner();
-contract NftMarketplace{
+contract NftMarketplace is ReentrancyGuard{
     struct Listing {
         uint256 price;
         address seller;
@@ -59,7 +60,7 @@ function listItem(address nftAddress, uint256 tokenId, uint256 price) external n
     s_listings[nftAddress][tokenId] = Listing(price, msg.sender);
     emit ItemListed(msg.sender, nftAddress, tokenId, price);
 }
-function buyItem(address nftAddress, uint256 tokenId) external payable isListed(nftAddress, tokenId){
+function buyItem(address nftAddress, uint256 tokenId) external payable nonReentrant isListed(nftAddress, tokenId){
     Listing memory listedItem = s_listings[nftAddress][tokenId];
     if(msg.value < listedItem.price){
         revert NftMarketplace__PriceNotMet(nftAddress, tokenId, listedItem.price);
