@@ -962,8 +962,8 @@
       "artifacts": []
     },
     "C:\\Users\\Administrator\\Desktop\\NFT MARKETPLACE\\contracts\\NftMarketplace.sol": {
-      "lastModificationDate": 1662463531023,
-      "contentHash": "a76c78b474fb15bbb4582af0a5ea8569",
+      "lastModificationDate": 1662484262909,
+      "contentHash": "f68b1c264c9e339407ab489287b9bb41",
       "sourceName": "contracts/NftMarketplace.sol",
       "solcConfig": {
         "version": "0.8.7",
@@ -996,7 +996,8 @@
         }
       },
       "imports": [
-        "@openzeppelin/contracts/token/ERC721/IERC721.sol"
+        "@openzeppelin/contracts/token/ERC721/IERC721.sol",
+        "@openzeppelin/contracts/security/ReentrancyGuard.sol"
       ],
       "versionPragmas": [
         "^0.8.7"
@@ -1218,6 +1219,48 @@
       ],
       "artifacts": [
         "AggregatorV3Interface"
+      ]
+    },
+    "C:\\Users\\Administrator\\Desktop\\NFT MARKETPLACE\\node_modules\\@openzeppelin\\contracts\\security\\ReentrancyGuard.sol": {
+      "lastModificationDate": 1660683359454,
+      "contentHash": "92f9448b23a90ea3bb932ee55cc3ccce",
+      "sourceName": "@openzeppelin/contracts/security/ReentrancyGuard.sol",
+      "solcConfig": {
+        "version": "0.8.7",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ReentrancyGuard"
       ]
     }
   }
