@@ -5,11 +5,12 @@ module.exports = async () => {
   const { deployer } = await getNamedAccounts();
   log('-----------------------')
   const args = []
-  const basicNft = await deploy('BasicNft', {
+  const nftMarketplace = await deploy('NftMarketplace', {
     from:deployer,
     args,
     log:true,
     waitConfirmations: network.config.blockConfirmations || 1
   })
   log('----------------------------------------')
+  log('Contract Deployed');
 };
